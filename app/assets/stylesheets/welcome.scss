@@ -1,0 +1,53 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.navbar-brand img{
+  width: 65px;
+}
+
+.rina-rss img{
+  width: 20px;
+}
+
+.rina-header{
+  border-bottom: 1px solid #CACACA;
+}
+
+.rina-new-article{
+  margin-top: 20px;
+}
+
+.widgettitle{
+  font-size: 15px;
+  margin-bottom: 1px;
+  padding: .3em 5px 1em 0em;
+  border-bottom: 1px solid #ccc;
+}
+
+.rina-title{
+  border-bottom: 1px solid #dddddd;
+  padding: .5rem 0;
+  text-align: center;
+}
+
+.search-field {
+  margin-top: 30px;
+}
+
+.search-field input{
+  width: 13em;
+  margin: 0;
+  padding: 6px 6px 6px 23px;
+  border: 1px solid #ccc;
+  background: #fff url(search.gif) no-repeat 190px center;
+  font-size: 1.2em;
+}
+
+.rina-new-title{
+  margin: 0;
+  padding: .3em 5px .4em 1em;
+  line-height: .3;
+  border-bottom: 1px dotted #bbb;
+  font-size: .9em;
+}

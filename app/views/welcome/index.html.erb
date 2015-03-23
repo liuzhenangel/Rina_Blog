@@ -1,0 +1,42 @@
+<nav class="navbar navbar-default">
+  <div class="container rina-header">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+        <%= image_tag("liuzhen.jpeg") %>
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <ul class="nav navbar-nav navbar-right">
+      <li class="rina-rss"><a href="#"><%= image_tag("rss.png") %></a></li>
+      <li><a href="#">主页</a></li>
+      <li><a href="#">所有</a></li>
+      <li><a href="#">关于</a></li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+<div class='container'>
+  <div class="row">
+    <div class="col-md-8">
+      <h2 class='rina-title'>标题</h2>
+      <div class='content markdown'>博客内容</div>
+    </div>
+    <div class="col-md-4">
+      <div class="search-field">
+        <input class="form-control" placeholder="Search" type="text">
+      </div>
+      <ul class="nav rina-new-article">
+        <li><h3 class="widgettitle">最新文章</h3></li>
+        <li class="rina-new-title"><a href="#">博客1</a></li>
+        <li class="rina-new-title"><a href="#">博客2</a></li>
+        <li class="rina-new-title"><a href="#">博客3</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
