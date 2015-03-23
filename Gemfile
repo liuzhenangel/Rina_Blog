@@ -9,6 +9,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass', '~> 3.3.4'
+gem 'mina'
+gem 'unicorn'
 
 group :development, :test do
   gem 'byebug'
