@@ -18,6 +18,19 @@
   margin-top: 20px;
 }
 
+.all-article{
+  margin-top: 20px;
+  margin-left: 205px;
+}
+
+.create-comment{
+  margin-top: 300px;
+}
+
+.form-comment{
+  width: 40%;
+}
+
 .widgettitle{
   font-size: 15px;
   margin-bottom: 1px;
@@ -29,6 +42,14 @@
   border-bottom: 1px solid #dddddd;
   padding: .5rem 0;
   text-align: center;
+}
+
+.article-show{
+  text-align: center;
+}
+
+.content.markdown{
+  padding: 1.2rem 0;
 }
 
 .search-field {

@@ -1,0 +1,28 @@
+<div class='container'>
+  <h2 class='article-new'>新建博客</h2>
+  <%= form_for @article, url: admin_posts_path do |f| %>
+    <p class='article-title'>
+  <%= f.label '标题' %><br>
+  <%= f.text_field :title %>
+  </p>
+  <div class="tabbable tabs-left">
+    <ul class="nav nav-tabs">
+      <li class="<%= 'active' if params[:tab] == 'tab1' %>">
+      <a href="#tab1" data-toggle="tab">
+        <%= f.label '内容' %>
+      </a>
+      </li>
+      <li class="<%= 'active' if params[:tab] == 'tab9' %>">
+      <a href="#tab9" data-toggle="tab">
+        <%= f.label '预览' %>
+      </a>
+      </li>
+      <a class='pull-right' id="upload_photo" href='#'>插入图片<a>
+        </ul>
+        <%= f.text_area :content %>
+      </div>
+      <p>
+      <%= f.submit '发表' %>
+      </p>
+    <% end %>
+    </div>

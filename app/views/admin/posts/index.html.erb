@@ -1,0 +1,11 @@
+<div class='container'>
+  <% @articles.each do |article| %>
+    <p>
+  <div class="col-md-3"><%= link_to article.title, article %></div>
+  <div class="col-md-2"><%= article.created_at.to_date %></div>
+   <div class="col-md-1"><%= link_to "评论", article %></div>
+   <div class="col-md-1"><%= link_to "编辑", edit_admin_post_path(article) %></div>
+    <div class="col-md-1"><%= link_to "删除", admin_post_path(article), method: :delete, data: { confirm: "确认删除?" } %></div>
+  </p>
+<% end %>
+</div>

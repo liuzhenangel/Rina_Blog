@@ -1,0 +1,40 @@
+// Place all the styles related to the admin::posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.rina-admin-navbar{
+  min-height: 50px;
+  height: 50px;
+
+  a {
+    padding-top: 15px;
+    padding-bottom: 14px;
+    line-height: 20px;
+  }
+
+  li > a {
+    padding-top: 15px;
+    padding-bottom: 14px;
+    line-height: 20px;
+  }
+}
+
+.rina-logo{
+  height: 50px;
+}
+
+.article-title{
+  margin-top: 60px;
+}
+
+#article_title{
+  width: 267px;
+  margin-top: 26px;
+  margin-bottom: 30px;
+}
+
+#article_content{
+  width: 1138px;
+  height: 505px;
+}
+

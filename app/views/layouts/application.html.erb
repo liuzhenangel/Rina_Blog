@@ -30,7 +30,25 @@
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav>
-<%= yield %>
-
+<div class='container'>
+  <div class="row">
+    <div class='col-md-8'>
+      <%= yield %>
+    </div>
+    <div class="col-md-4">
+      <div class="search-field">
+        <input class="form-control" placeholder="Search" type="text">
+      </div>
+      <ul class="nav rina-new-article">
+        <li><h3 class="widgettitle">最新文章</h3></li>
+        <% @newest_articles.each do |article| %>
+          <li class="rina-new-title">
+        <%= link_to article.title, article_path(article) %>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
 </body>
 </html>

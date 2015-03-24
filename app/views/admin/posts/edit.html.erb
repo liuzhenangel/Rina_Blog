@@ -1,0 +1,31 @@
+<div class='container'>
+  <h2 class='article-new'>编辑博客</h2>
+  <%= form_for @article, url: admin_post_path, method: :patch do |f| %>
+    <p class='article-title'>
+  <%= f.label '标题' %><br>
+  <%= f.text_field :title %>
+  </p>
+
+  <p>
+  <ul class="nav nav-tabs">
+    <li role="presentation" class="active">
+    <a href="#">
+      <%= f.label '内容' %>
+    </a>
+    </li>
+    <li role="presentation">
+    <a href="#">
+      <%= f.label '预览' %>
+    </a>
+    </li>
+    <a class='pull-right' id="upload_photo" href='#'>插入图片<a>
+        <input type='file' style='display: none;'>
+      </ul>
+      <%= f.text_area :content %>
+      </p>
+
+      <p>
+      <%= f.submit '发表' %>
+      </p>
+    <% end %>
+    </div>
