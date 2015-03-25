@@ -1,7 +1,15 @@
 <h2 class='rina-title'><%= @article.title %></h2>
 <div class='content markdown'><%= @article.content %></div>
 <div class='create-comment'>
-  <%= form_for Comment.new, url: comments_path(article_id: @article.id) do |f| %>
+  <% flash.each do |name, msg| %>
+    <% if msg.is_a?(String) %>
+      <div class="alert alert-<%= name == 'error' ? 'danger' : 'info' %> alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <%= msg %>
+  </div>
+<% end %>
+<% end %>
+  <%= form_for @comment, url: comments_path(article_id: @article.id) do |f| %>
     <div class='form-group'>
     <%= f.text_area :message, rows: '3', class: 'form-control', placeholder: '留言...' %>
   </div>
@@ -17,11 +25,17 @@
 <% end %>
 </div>
 <div class='form-group'>
-  <% @article.comments.each do |comment| %>
-    <div class='well well-lg'>
-    <%= comment.username %>--
-    <%= comment.created_at.to_date %>
-    <%= comment.message %>
+  <div class='comment-diag'>
+    <% @comments.each do |comment| %>
+      <div class='comment-wrapper'>
+        <p class='name'>
+          <%= comment.username %>  •
+          <span class='created-at'><%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></span>
+        </p>
+        <p class='comment-content'>
+          <%= comment.message %>
+        </p>
+      </div>
+    <% end %>
   </div>
-<% end %>
 </div>

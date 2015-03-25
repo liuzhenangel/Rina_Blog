@@ -27,6 +27,39 @@
   margin-top: 300px;
 }
 
+.comment-wrapper {
+  margin-bottom: 0.5rem;
+}
+
+.comment-wrapper .comment-content {
+  word-wrap: break-word;
+  color: #000000;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.comment-diag .created-at {
+  color: #b3b3b3;
+}
+
+.comment-wrapper .name {
+  color: #000000;
+}
+
+.comment-content {
+  padding-bottom: 2.275rem;
+  padding-left: 0.275rem;
+  border-bottom: 1px dashed #8a8a8a;
+  margin-bottom: 0;
+  white-space: pre;
+}
+
+.comment-diag {
+  color: #EBEBEB;
+  border-top: 1px solid #5E5E5E;
+  padding-top: 1rem;
+}
+
 .form-comment{
   width: 40%;
 }

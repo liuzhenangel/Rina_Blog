@@ -28,7 +28,9 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/">返回首页</a></li>
-        <li><a href="#">退出</a></li>
+        <% if login? %>
+          <li><a href="/signout">退出</a></li>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

@@ -5,10 +5,14 @@ class CommentsController < ApplicationController
   def create
     @article = Article.find(params[:article_id])
     @comment = Comment.new(comment_params.merge(article_id: params[:article_id]))
+    @comments = @article.comments.order(created_at: :desc)
     if !@comment.save
       flash[:error] = '添加评论失败'
+      render 'articles/show'
+    else
+      flash[:notic] = '添加评论成功'
+      redirect_to @article
     end
-    redirect_to @article
   end
 
   private

@@ -1,5 +1,11 @@
 class Admin::PostsController < ApplicationController
   layout 'admin'
+
+  before_action do
+    flash[:error] = '请先登录后再操作'
+    redirect_to signin_path unless session[:login]
+  end
+
   def index
     @articles = Article.all
   end
@@ -23,8 +29,12 @@ class Admin::PostsController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    @article.save
-    redirect_to @article
+    if @article.save
+      redirect_to @article
+    else
+      flash.now[:error] = '新增博客失败'
+      render :new
+    end
   end
 
   def destroy

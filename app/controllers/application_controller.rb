@@ -11,4 +11,9 @@ class ApplicationController < ActionController::Base
       @newest_articles
     end
   end
+
+  helper_method :login?
+  def login?
+    session[:login].present?
+  end
 end
