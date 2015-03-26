@@ -1,5 +1,5 @@
 <h2 class='rina-title'><%= @newest.title %></h2>
-<div class='content markdown'><%= @newest.content %></div>
+<div class='content markdown'><%= sanitize @newest.content %></div>
 <div class='create-comment'>
   <% flash.each do |name, msg| %>
     <% if msg.is_a?(String) %>

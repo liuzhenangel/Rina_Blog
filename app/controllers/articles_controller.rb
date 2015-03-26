@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
+    @article = Article.find(params[:id]).to_html
     @comment = Comment.new
     @comments = @article.comments.order(created_at: :desc)
   end

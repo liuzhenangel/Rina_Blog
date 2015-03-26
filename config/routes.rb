@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   end
   resources :articles
   resources :comments
+  post '/preview', to: 'admin/posts#preview'
+  post '/photos', to: 'admin/posts#photos'
   root 'welcome#index'
   get '/about', to: 'welcome#about'
   get '/blog/rss', to: 'welcome#rss'

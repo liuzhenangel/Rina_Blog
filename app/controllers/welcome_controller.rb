@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @newest = Article.order(created_at: :desc).first
+    @newest = Article.order(created_at: :desc).first.to_html
     @comments = @newest.comments.order(created_at: :desc)
   end
 

@@ -38,3 +38,16 @@
   height: 505px;
 }
 
+input[type='file']{
+  display: none;
+}
+
+.markdown-body{
+  display: none;
+  border: 1px solid #C5C5C5;
+  padding: 0px 10px;
+  overflow: scroll;
+  width: 1138px;
+  height: 505px;
+}
+

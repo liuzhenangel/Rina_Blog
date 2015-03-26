@@ -1,37 +1,30 @@
 <div class='container'>
   <% flash.each do |name, msg| %>
     <% if msg.is_a?(String) %>
-    <div class="alert alert-danger alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <strong>Error!</strong>
-    <%= msg %>
-  </div>
-<% end %>
-<% end %>
+      <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= msg %>
+      </div>
+    <% end %>
+  <% end %>
   <h2 class='article-new'>新建博客</h2>
   <%= form_for @article, url: admin_posts_path do |f| %>
     <p class='article-title'>
-  <%= f.label '标题' %><br>
-  <%= f.text_field :title %>
-  </p>
-  <div class="tabbable tabs-left">
-    <ul class="nav nav-tabs">
-      <li class="<%= 'active' if params[:tab] == 'tab1' %>">
-      <a href="#tab1" data-toggle="tab">
-        <%= f.label '内容' %>
-      </a>
-      </li>
-      <li class="<%= 'active' if params[:tab] == 'tab9' %>">
-      <a href="#tab9" data-toggle="tab">
-        <%= f.label '预览' %>
-      </a>
-      </li>
-      <a class='pull-right' id="upload_photo" href='#'>插入图片<a>
-        </ul>
-        <%= f.text_area :content %>
-      </div>
-      <p>
-      <%= f.submit '发表' %>
-      </p>
-    <% end %>
+      <%= f.label '标题' %><br>
+      <%= f.text_field :title %>
+    </p>
+    <div class="tabbable tabs-left">
+      <ul class="nav nav-tabs">
+        <li class='content-title active'><%= link_to '内容', '#' %></li>
+        <li class="preview-title"><%= link_to '预览', '#' %></li>
+        <a href="#" class='pull-right' id="upload-photo">插入图片</a>
+        <input type='file' class='file-window'>
+      </ul>
+      <%= f.text_area :content %>
+      <div class='markdown-body'></div>
     </div>
+    <p>
+      <%= f.submit '发表' %>
+    </p>
+  <% end %>
+</div>
