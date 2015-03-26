@@ -37,15 +37,17 @@
     </div>
     <div class="col-md-4">
       <div class="search-field">
-        <input class="form-control" placeholder="Search" type="text">
+        <%= form_for(:search, url: search_path(article: @article, newest: @newest)) do |f| %>
+          <%= text_field_tag 'search', params[:search], class: 'form-control', placeholder: 'Search' %>
+        <% end %>
       </div>
       <ul class="nav rina-new-article">
         <li><h3 class="widgettitle">最新文章</h3></li>
         <% @newest_articles.each do |article| %>
           <li class="rina-new-title">
-        <%= link_to article.title, article_path(article) %>
-        </li>
-      <% end %>
+            <%= link_to article.title, article_path(article) %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>

@@ -2,8 +2,10 @@ class Admin::PostsController < ApplicationController
   layout 'admin'
 
   before_action do
-    flash[:error] = '请先登录后再操作'
-    redirect_to signin_path unless session[:login]
+    unless login?
+      flash[:error] = '请先登录后再操作'
+      redirect_to signin_path
+    end
   end
 
   def index
