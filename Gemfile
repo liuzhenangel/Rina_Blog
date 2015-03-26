@@ -11,10 +11,14 @@ gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'mina'
 gem 'unicorn'
-gem 'pry'
+# markdown 工具
+gem 'redcarpet'
+#保存图片
+gem 'carrierwave'
 
 group :development, :test do
   gem 'byebug'
+  gem 'pry'
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end

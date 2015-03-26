@@ -8,6 +8,17 @@ class Admin::PostsController < ApplicationController
     end
   end
 
+  def photos
+    @photo = Photo.new(image: params["Filedata"])
+    @photo.save!
+    render :text=> "![](#{@photo.image.url})"
+  end
+
+  def preview
+    html = Markdown.new(params[:body]).to_html
+    render text: html
+  end
+
   def index
     @articles = Article.all
   end
@@ -19,7 +30,7 @@ class Admin::PostsController < ApplicationController
   def update
     @article = Article.find(params[:id])
     @article.update(article_params)
-    redirect_to @article
+    redirect_to @article.to_html
   end
 
   def new
@@ -32,7 +43,7 @@ class Admin::PostsController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      redirect_to @article
+      redirect_to @article.to_html
     else
       flash.now[:error] = '新增博客失败'
       render :new
