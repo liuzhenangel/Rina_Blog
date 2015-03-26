@@ -37,7 +37,7 @@
     </div>
     <div class="col-md-4">
       <div class="search-field">
-        <%= form_for(:search, url: search_path(article: @article, newest: @newest)) do |f| %>
+        <%= form_for(:search, url: search_path) do |f| %>
           <%= text_field_tag 'search', params[:search], class: 'form-control', placeholder: 'Search' %>
         <% end %>
       </div>

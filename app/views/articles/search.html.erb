@@ -1,0 +1,6 @@
+<% @articles.each do |article| %>
+  <div class='search-content'>
+    <h2 class='search-title'><%= link_to sanitize(article.title), article %></h2>
+    <div class='search-html'><%= sanitize article.to_html.content %></div>
+  </div>
+<% end %>
