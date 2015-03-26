@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @article = Article.find(params[:article_id])
+    @article = Article.find(params[:article_id]).to_html
     @comment = Comment.new(comment_params.merge(article_id: params[:article_id]))
     @comments = @article.comments.order(created_at: :desc)
     if !@comment.save
