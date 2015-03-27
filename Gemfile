@@ -17,7 +17,10 @@ gem 'redcarpet'
 gem 'carrierwave'
 # 图片截取
 gem "mini_magick"
+# 截断html
 gem 'truncate_html'
+# 分页
+gem 'will_paginate'
 
 group :development, :test do
   gem 'byebug'

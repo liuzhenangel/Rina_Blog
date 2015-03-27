@@ -11,4 +11,5 @@
     <h2 class='search-title'><%= link_to sanitize(article.title), article %></h2>
     <div class='search-html'><%= sanitize article.content %></div>
   <% end %>
+  <%= will_paginate @articles %>
 </div>

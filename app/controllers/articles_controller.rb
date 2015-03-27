@@ -10,7 +10,9 @@ class ArticlesController < ApplicationController
   end
 
   def search
+    params[:page] = 1 if params[:page].blank?
     @articles = Article.where("title like ? OR content like ?", "%#{params[:search]}%", "%#{params[:search]}%")
+    @articles = @articles.paginate(:page =>params[:page], :per_page => 8)
     if @articles.blank?
       flash.now[:error] = '没有你要找的内容'
       return
