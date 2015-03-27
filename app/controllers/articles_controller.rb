@@ -11,11 +11,17 @@ class ArticlesController < ApplicationController
 
   def search
     @articles = Article.where("title like ? OR content like ?", "%#{params[:search]}%", "%#{params[:search]}%")
+    if @articles.blank?
+      flash.now[:error] = '没有你要找的内容'
+      return
+    end
     @articles.map do |a|
-      a.title = a.title.gsub(params[:search], "<em>#{params[:search]}</em>")
+      a.title = a.title.gsub(params[:search].to_s, "<em>#{params[:search]}</em>")
       unless a.content.include?('/uploads/photo/image')
-        a.content = a.content.gsub(params[:search], "<em>#{params[:search]}</em>")
+        a.content = a.content.gsub(params[:search].to_s, "<em>#{params[:search]}</em>")
       end
+      htmlstring = TruncateHtml::HtmlString.new(a.to_html.content)
+      a.content = TruncateHtml::HtmlTruncator.new(htmlstring).truncate
     end
   end
 end

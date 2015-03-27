@@ -1,6 +1,14 @@
-<% @articles.each do |article| %>
-  <div class='search-content'>
+<div class='search-content'>
+  <% flash.each do |name, msg| %>
+    <% if msg.is_a?(String) %>
+     <div class="alert alert-<%= name == 'error' ? 'danger' : 'info' %> alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <%= msg %>
+    </div>
+   <% end %>
+  <% end %>
+  <% @articles.each do |article| %>
     <h2 class='search-title'><%= link_to sanitize(article.title), article %></h2>
-    <div class='search-html'><%= sanitize article.to_html.content %></div>
-  </div>
-<% end %>
+    <div class='search-html'><%= sanitize article.content %></div>
+  <% end %>
+</div>
