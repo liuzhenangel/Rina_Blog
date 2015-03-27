@@ -13,8 +13,11 @@ gem 'mina'
 gem 'unicorn'
 # markdown 工具
 gem 'redcarpet'
-#保存图片
+# 保存图片
 gem 'carrierwave'
+# 图片截取
+gem "mini_magick"
+gem 'truncate_html'
 
 group :development, :test do
   gem 'byebug'
