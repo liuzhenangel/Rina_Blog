@@ -1,7 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @newest = Article.order(created_at: :desc).first.to_html
-    @comments = @newest.comments.order(created_at: :desc)
+    @articles = Article.all.order(created_at: :desc).limit(8)
   end
 
   def rss

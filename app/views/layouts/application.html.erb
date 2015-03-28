@@ -42,10 +42,10 @@
 </nav>
 <div class='container'>
   <div class="row">
-    <div class='col-md-8'>
+    <div class='col-md-9'>
       <%= yield %>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="search-field">
         <%= form_for(:search, url: search_path, method: 'get') do |f| %>
           <%= text_field_tag 'search', params[:search], class: 'form-control', placeholder: 'Search' %>

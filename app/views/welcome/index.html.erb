@@ -1,41 +1,16 @@
-<h2 class='rina-title'><%= @newest.title %></h2>
-<div class='content markdown'><%= sanitize @newest.content %></div>
-<div class='create-comment'>
-  <% flash.each do |name, msg| %>
-    <% if msg.is_a?(String) %>
-      <div class="alert alert-<%= name == 'error' ? 'danger' : 'info' %> alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <%= msg %>
-  </div>
-<% end %>
-<% end %>
-  <%= form_for Comment.new, url: comments_path(article_id: @newest.id) do |f| %>
-    <div class='form-group'>
-    <%= f.text_area :message, rows: '3', class: 'form-control', placeholder: '留言...' %>
-  </div>
-  <div class='form-group'>
-    <%= f.text_field :username, class: 'form-control form-comment', placeholder: '你的名字' %>
-  </div>
-  <div class='form-group'>
-    <%= f.text_field :email, class: 'form-control form-comment', placeholder: '邮箱' %>
-  </div>
-  <div class='form-group'>
-    <%= f.submit '提交', class: 'btn btn-default' %>
-  </div>
-<% end %>
-</div>
-<div class='form-group'>
-  <% @comments.each do |comment| %>
-    <div class='comment-diag'>
-      <div class='comment-wrapper'>
-        <p class='name'>
-          <%= comment.username %>  •
-          <span class='created-at'><%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></span>
-        </p>
-        <p class='comment-content'>
-          <%= comment.message %>
-        </p>
-      </div>
+<div class="row index-row">
+  <% @articles.each_with_index do |artc1, index| %>
+    <div class="col-sm-6">
+      <div class="ih-item square effect3 bottom_to_top index-row">
+        <div class='index-title'><%= artc1.title %></div>
+        <%= link_to article_path(artc1) do %>
+          <div class="img"><%= image_tag("#{index + 1}.jpg") %></div>
+          <div class="info">
+            <h3><%= artc1.title %></h3>
+            <p>点击查看</p>
+         </div>
+        <% end %>
+     </div>
     </div>
   <% end %>
 </div>
