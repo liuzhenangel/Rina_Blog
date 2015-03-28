@@ -22,8 +22,9 @@ task :environment do
   # Be sure to commit your .rbenv-version to your repository.
   # invoke :'rbenv:load'
 
+  queue! %[source /usr/local/rvm/scripts/rvm]
+  queue! %[rvm use 2.0.0]
   # For those using RVM, use this to load an RVM version@gemset.
-  # invoke :'rvm:use[ruby-1.9.3-p125@default]'
 end
 
 # Put any custom mkdir's in here for when `mina setup` is ran.
