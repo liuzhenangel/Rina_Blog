@@ -8,8 +8,9 @@ set :domain, 'yafeilee.me'
 set :deploy_to, '/home/ruby/rina'
 set :repository, 'git@github.com:liuzhenangel/Rina_Blog.git'
 set :branch, 'master'
+set :app_path, "#{deploy_to}/#{current_path}"
 
-set :shared_paths, ['config/database.yml', 'log']
+set :shared_paths, ['config/database.yml', 'log', 'db/production.sqlite3']
 
 set :user, 'ruby'    # Username in the server to SSH to.
 set :port, '22'     # SSH port number.
@@ -57,5 +58,39 @@ task :deploy => :environment do
       queue "mkdir -p #{deploy_to}/#{current_path}/tmp/"
       queue "touch #{deploy_to}/#{current_path}/tmp/restart.txt"
     end
+  end
+end
+
+namespace :unicorn do
+  set :unicorn_pid, "#{app_path}/tmp/pids/unicorn_rina.pid"
+  set :start_unicorn, %{
+    cd #{app_path} && bundle exec unicorn -c config/unicorn/#{rails_env}.rb -E #{rails_env} -D
+  }
+
+  #                                                                    Start task
+  # ------------------------------------------------------------------------------
+  desc "Start unicorn"
+  task :start => :environment do
+    queue 'echo "-----> Start Unicorn"'
+    queue! start_unicorn
+  end
+
+  #                                                                     Stop task
+  # ------------------------------------------------------------------------------
+  desc "Stop unicorn"
+  task :stop do
+    queue 'echo "-----> Stop Unicorn"'
+    queue! %{
+      mkdir -p "#{app_path}/tmp/pids"
+      test -s "#{unicorn_pid}" && kill -QUIT `cat "#{unicorn_pid}"` && rm -rf "#{unicorn_pid}" && echo "Stop Ok" && exit 0
+      echo >&2 "Not running"
+    }
+  end
+  #                                                                  Restart task
+  # ------------------------------------------------------------------------------
+  desc "Restart unicorn using 'upgrade'"
+  task :restart => :environment do
+    invoke 'unicorn:stop'
+    invoke 'unicorn:start'
   end
 end
