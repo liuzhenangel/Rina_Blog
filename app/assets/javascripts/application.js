@@ -2,6 +2,8 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
+//= require nprogress
+//= require nprogress-turbolinks
 //= require jquery.html5-fileupload
 //= require jquery.tiles
 //= require_tree .

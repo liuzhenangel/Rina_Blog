@@ -25,6 +25,8 @@ gem "mini_magick"
 gem 'truncate_html'
 # 分页
 gem 'will_paginate'
+# 浏览器加载进度条
+gem 'nprogress-rails'
 
 group :development, :test do
   gem 'byebug'
