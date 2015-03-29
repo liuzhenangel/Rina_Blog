@@ -16,6 +16,7 @@ class WelcomeController < ApplicationController
       basename = File.basename(f)
       {:name => f.sub('public/', '/'), :desc => "名称 #{basename.split('.').first}"} if basename.include?('photo')
     end.compact
+    flash[:notic] = '主人还未上传相片' if @files.blank?
     render :layout=>'photo'
   end
 end
