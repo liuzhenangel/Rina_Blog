@@ -6,7 +6,7 @@
 .photo-body{
   width: 960px;
   margin: 0px auto;
-  background: url(bg.png);
+  background: image-url('bg.png');
   overflow-y: scroll;
 }
 
@@ -35,7 +35,7 @@ h1 {
   background: white;
   padding: 10px;
   width: 960px;
-  height: 440px;
+  height: 447px;
   box-shadow: 0 1px 4px rgba(0,0,0,.2);
 }
 .slider {
@@ -89,16 +89,10 @@ footer {
   margin-top: 2em;
 }
 
-.photo-background{
-  width: 960px;
-  margin: 0 auto;
-  overflow-y: scroll;
-  background-image: url("bg.png");
-}
 //end 相册
 
 .about-background{
-  background-image: url("CZ16VX4.gif");
+  background-image: image-url("CZ16VX4.gif");
 }
 
 p{
@@ -226,7 +220,7 @@ p{
   margin: 0;
   padding: 6px 6px 6px 23px;
   border: 1px solid #ccc;
-  background: #fff url(search.gif) no-repeat 190px center;
+  background: #fff image-url('search.gif') no-repeat 190px center;
   font-size: 1.2em;
 }
 

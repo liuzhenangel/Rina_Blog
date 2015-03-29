@@ -14,7 +14,7 @@ class WelcomeController < ApplicationController
     @files = @dirs.map do |f|
       f = f.sub('public/','/')
       basename = File.basename(f)
-      {:name => f.sub('public/', '/'), :desc => "名称 #{basename.split('.').first}"} if basename.include?('photo')
+      {:name => f.sub('public/', '/'), :desc => "相片"} if basename.include?('photo')
     end.compact
     flash[:notic] = '主人还未上传相片' if @files.blank?
     render :layout=>'photo'
