@@ -8,41 +8,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav class="navbar">
-  <div class="container rina-header">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <div class="row">
-        <div class="col-sm-6">
-
-          <!-- normal -->
-          <div class="ih-item circle effect15 left_to_right"><a href="/about">
-              <div class="img"><%= image_tag('7.jpg') %></div>
-              <div class="info">
-                <h3>Rina's Blog</h3>
-                <p>click to about me</p>
-          </div></a></div>
-          <!-- end normal -->
-        </div>
-      </div>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <ul class="nav navbar-nav navbar-right">
-      <li class="rina-rss"><a href="/blog/rss"><%= image_tag("rss.png") %></a></li>
-      <li><a href="/">主页</a></li>
-      <li><a href="/all">所有</a></li>
-      <li><a href="/photo">相册</a></li>
-      <li><a href="/about">关于</a></li>
-    </ul>
-  </div><!-- /.navbar-collapse -->
-</nav>
 <div class='container'>
+  <div class="row rina-header">
+      <div class="col-sm-6">
+        <div class="ih-item circle effect15 left_to_right header-circle"><a href="/about">
+            <div class="img"><%= image_tag('7.jpg') %></div>
+            <div class="info">
+              <h3>Rina's Blog</h3>
+              <p>click to about me</p>
+        </div></a></div>
+      </div>
+      <div class='col-sm-6 navbar-right'>
+        <button type="button" class="btn btn-info"><a class='a' href='/blog/rss'>订阅</a></button>
+        <button type="button" class="btn btn-info"><a class='a' href='/'>主页</a></button>
+        <button type="button" class="btn btn-info"><a class='a' href='/all'>所有</a></button>
+        <button type="button" class="btn btn-info"><a class='a' href='/photo'>相册</a></button>
+        <button type="button" class="btn btn-info"><a class='a' href='/about'>关于</a></button>
+      </div>
+  </div>
   <div class="row">
     <div class='col-md-9'>
       <%= yield %>
