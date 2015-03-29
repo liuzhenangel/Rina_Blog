@@ -2,6 +2,114 @@
   width: 65px;
 }
 
+//相册
+.photo-body{
+  width: 960px;
+  margin: 0px auto;
+  background: url(bg.png);
+  overflow-y: scroll;
+}
+
+.photo-container{
+  width: 990px;
+}
+
+section{
+  margin-top: 50px;
+}
+
+a {
+  color: #088BBF;
+  text-decoration: none;
+}
+h1 {
+  display: inline-block;
+  margin: 0;
+}
+#down {
+  position: relative;
+  top: -18px;
+  margin: 0 1em;
+}
+.slider-wrap {
+  background: white;
+  padding: 10px;
+  width: 960px;
+  height: 440px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.2);
+}
+.slider {
+  width: 940px;
+  height: 400px;
+}
+.slider strong { color: #F0E10E; }
+article {
+  position: relative;
+}
+.title {
+  padding: 1em 0;
+  position: relative;
+  margin-bottom: 25px;
+}
+.code,
+#effects-select {
+  display: inline-block;
+}
+#effects-select {
+  padding: .4em;
+  margin-right: 1em;
+  font-size: 14px;
+  border: 1px solid #aaa;
+}
+label { margin-right: .5em; }
+code {
+  padding: .5em 1em;
+  background: rgba(255,255,255,.75);
+  font-size: 14px;
+  margin: 0 .2em;
+  font-family: Ubuntu Mono, monospace;
+}
+.action {
+  position: absolute;
+  right: 0;
+  top: 13px;
+  color: white;
+  background: black;
+  border: 0;
+  width: 80px;
+  padding: .6em 0;
+}
+.stop {
+  display: none;
+  background: #088BBF;
+  text-shadow: 1px 1px rgba(0,0,0,.4)
+}
+
+footer {
+  margin-top: 2em;
+}
+
+.photo-background{
+  width: 960px;
+  margin: 0 auto;
+  overflow-y: scroll;
+  background-image: url("bg.png");
+}
+//end 相册
+
+.about-background{
+  background-image: url("CZ16VX4.gif");
+}
+
+p{
+  margin: 18px 0 10px;
+}
+
+.self-info{
+  padding-left: 20px;
+  margin-top: 26px;
+}
+
 .index-row{
   margin-top: 10px;
   margin-bottom: 15px;

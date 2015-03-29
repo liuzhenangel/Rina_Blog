@@ -1,0 +1,16 @@
+<section>
+  <div class='title'>
+    <button type="button" class="start action">Play</button>
+    <button type="button" class="stop action">Stop</button>
+  </div>
+  <div class="slider-wrap">
+    <div class="slider">
+      <% @files.each do |f| %>
+        <%= image_tag(f[:name], size: '940*400') %><p><%= f[:desc] %>
+      <% end %>
+    </div>
+  </div>
+</section>
+<footer>
+  <%= link_to('返回首页', '/') %>
+</footer>

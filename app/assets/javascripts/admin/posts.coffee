@@ -1,4 +1,5 @@
 $(document).on 'ready, page:change', ->
+
   $('.preview-title').click ->
     $('.preview-title').addClass('active')
     $('.content-title').removeClass('active')

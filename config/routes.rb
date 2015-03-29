@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   get '/blog/rss', to: 'welcome#rss'
   get '/about', to: 'welcome#about'
+  get '/photo', to: 'welcome#photo'
   get '/all', to: 'articles#index'
   root 'welcome#index'
 end
