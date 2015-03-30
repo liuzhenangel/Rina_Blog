@@ -111,6 +111,29 @@ p{
 .self-info{
   padding-left: 20px;
   margin-top: 26px;
+  margin-bottom: 30px;
+}
+
+.worker-use{
+  padding-left: 35px;
+}
+
+.title-self{
+  font-weight: bolder;
+}
+
+.page-footer{
+  border-top: 1px solid #dddddd;
+  padding: 1rem 0 2rem;
+  text-align: right;
+}
+
+.page-footer .link {
+  margin-right: 1rem;
+}
+
+.page-footer .license {
+  margin-top: 1rem;
 }
 
 .index-row{
