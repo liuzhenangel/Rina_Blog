@@ -26,10 +26,12 @@ $(document).on 'ready, page:change', ->
   $('.start').click ->
     $(this).hide()
     $('.stop').show()
+    $('.audio-tag')[0].play()
     $('.slider').tilesSlider('start')
 
   $('.stop').click ->
     $(this).hide()
+    $('.audio-tag')[0].pause()
     $('.start').show()
     $('.slider').tilesSlider('stop')
 
