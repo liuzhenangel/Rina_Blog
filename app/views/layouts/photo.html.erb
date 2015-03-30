@@ -9,7 +9,7 @@
   </head>
   <body class='photo-body'>
     <div class='container photo-container'>
-      <%= audio_tag("sound.mp3", class: 'audio-tag', type: 'audio/mpeg') %>
+      <%= audio_tag("sound.mp3", loop: true, class: 'audio-tag', type: 'audio/mpeg') %>
       <%= yield %>
     </div>
   </body>

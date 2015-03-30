@@ -19,7 +19,7 @@
               <p class='start-misic'>Click to Start</p>
               <p class='stop-misic' style='display:none'>Click to Stop</p>
         </div></a></div>
-      <%= audio_tag("sound.mp3", class: 'audio-tag', type: 'audio/mpeg') %>
+      <%= audio_tag("sound.mp3", loop: true, class: 'audio-tag', type: 'audio/mpeg') %>
       </div>
       <div class='col-sm-6 index-navbar-right'>
         <a class='btn btn-info index-btn-info a' href='/blog/rss'>订阅</a>
