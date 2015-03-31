@@ -5,8 +5,7 @@ class Admin::SessionsController < ApplicationController
   end
 
   def create
-    #redirect_to admin_posts_path if session[:login]
-    if params[:session][:username] == 'rina' && params[:session][:password] == '112023'
+    if params[:session][:username] == ENV['pusher_user'] && params[:session][:password] == ENV['pusher_pwd']
       session[:login] = true
       redirect_to admin_posts_path
     else

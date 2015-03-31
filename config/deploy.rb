@@ -10,7 +10,7 @@ set :repository, 'git@github.com:liuzhenangel/Rina_Blog.git'
 set :branch, 'master'
 set :app_path, "#{deploy_to}/#{current_path}"
 
-set :shared_paths, ['config/database.yml', 'log', 'db/production.sqlite3', 'tmp']
+set :shared_paths, ['config/database.yml', 'config/application.yml', 'log', 'db/production.sqlite3', 'tmp']
 
 set :user, 'ruby'    # Username in the server to SSH to.
 set :port, '22'     # SSH port number.

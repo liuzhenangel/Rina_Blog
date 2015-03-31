@@ -15,6 +15,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'mina'
 gem 'unicorn'
+# 配置密码
+gem 'figaro'
 # markdown 工具
 gem 'redcarpet'
 # 保存图片
