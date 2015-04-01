@@ -25,8 +25,10 @@
 <% end %>
 </div>
 <div class='form-group'>
-  <% @comments.each do |comment| %>
-    <div class='comment-diag'>
+  <% @comments.each_with_index do |comment, index| %>
+    <% if index == 0 %>
+      <div class='comment-diag'>
+    <% end %>
       <div class='comment-wrapper'>
         <p class='name'>
           <%= comment.username %>  •
@@ -36,6 +38,8 @@
           <%= comment.message %>
         </p>
       </div>
-    </div>
+    <% if index == 0 %>
+      </div>
+    <% end %>
   <% end %>
 </div>
