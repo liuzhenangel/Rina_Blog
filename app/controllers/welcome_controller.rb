@@ -9,14 +9,13 @@ class WelcomeController < ApplicationController
     response.headers["Content-Type"] = "application/xml; charset=utf-8"
   end
 
+  def about
+    @self_info = Article.self_info
+  end
+
   def photo
-    @dirs = Dir.glob("public/uploads/photo/image/*/*")
-    @files = @dirs.map do |f|
-      f = f.sub('public/','/')
-      basename = File.basename(f)
-      {:name => f.sub('public/', '/'), :desc => "相片"} if basename.include?('photo')
-    end.compact
-    flash[:notic] = '主人还未上传相片' if @files.blank?
+    @photos = Photo.photo_album
+    flash[:notic] = '主人还未上传相片' if @photos.blank?
     render :layout=>'photo'
   end
 end

@@ -1,16 +1,30 @@
 Rails.application.routes.draw do
 
   namespace :admin do
-    resources :posts
+    resources :photos, only: [:index, :destroy] do
+      collection do
+        post :upload
+      end
+    end
+
+    resources :articles do
+      collection do
+        post :preview
+        post :photos
+      end
+    end
   end
 
-  resources :articles
-  resources :comments
-  post '/preview', to: 'admin/posts#preview'
-  post '/photos', to: 'admin/posts#photos'
+  resources :articles do
+    collection do
+      get :search
+      post :search
+    end
+  end
 
-  post '/search', to: 'articles#search'
-  get  '/search', to: 'articles#search'
+  resources :comments
+
+  get '/admin', to: 'admin/articles#index'
 
   post '/signin', to: 'admin/sessions#create'
   get '/signin', to: 'admin/sessions#new'
@@ -19,6 +33,5 @@ Rails.application.routes.draw do
   get '/blog/rss', to: 'welcome#rss'
   get '/about', to: 'welcome#about'
   get '/photo', to: 'welcome#photo'
-  get '/all', to: 'articles#index'
   root 'welcome#index'
 end

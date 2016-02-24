@@ -1,5 +1,5 @@
 if ENV['RUBYTAOBAO']
-  source 'http://ruby.taobao.org'
+  source 'https://ruby.taobao.org'
 else
   source 'https://rubygems.org'
 end
@@ -15,10 +15,12 @@ gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'mina'
 gem 'unicorn'
+gem 'slim-rails'
 # 配置密码
 gem 'figaro'
 # markdown 工具
 gem 'redcarpet'
+gem 'rouge'
 # 保存图片
 gem 'carrierwave'
 # 图片截取
@@ -26,7 +28,7 @@ gem "mini_magick"
 # 截断html
 gem 'truncate_html'
 # 分页
-gem 'will_paginate'
+gem 'kaminari'
 # 浏览器加载进度条
 gem 'nprogress-rails'
 

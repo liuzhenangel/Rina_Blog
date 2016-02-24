@@ -7,7 +7,7 @@ class Admin::SessionsController < ApplicationController
   def create
     if params[:session][:username] == ENV['pusher_user'] && params[:session][:password] == ENV['pusher_pwd']
       session[:login] = true
-      redirect_to admin_posts_path
+      redirect_to admin_articles_path
     else
       flash.now[:error] = '用户名或密码错误'
       render 'new'

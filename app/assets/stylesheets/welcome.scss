@@ -15,6 +15,9 @@
 }
 
 section{
+  @media (max-width: 780px) {
+    margin-top: 0px;
+  }
   margin-top: 50px;
 }
 
@@ -104,6 +107,9 @@ p{
 }
 
 .header-circle{
+  @media (max-width: 780px) {
+    margin: auto;
+  }
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -137,15 +143,27 @@ p{
 }
 
 .index-row{
+  @media (max-width: 780px) {
+    margin: auto;
+    margin-top: 5px;
+  }
   margin-top: 10px;
   margin-bottom: 15px;
 }
 
 .index-btn-info{
+  @media (max-width: 780px) {
+    margin-left: 2px;
+  }
   margin-left: 15px;
 }
 
 .index-navbar-right{
+  @media (max-width: 780px) {
+    margin-top: 17px;
+    text-align: center;
+  }
+
   margin-top: 98px;
   text-align: right;
 }
@@ -159,6 +177,9 @@ p{
 }
 
 .all-article{
+  @media (max-width: 780px) {
+    margin-left: 0px;
+  }
   margin-top: 20px;
   margin-left: 205px;
 }

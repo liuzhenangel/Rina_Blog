@@ -61,6 +61,9 @@
 }
 
 .ih-item.square {
+  @media (max-width: 780px) {
+    width: 100%;
+  }
   position: relative;
   width: 316px;
   height: 216px;

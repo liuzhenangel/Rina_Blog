@@ -6,7 +6,7 @@ $(document).on 'ready, page:change', ->
     $('#article_content').hide()
     $('.markdown-body').show()
     $('.markdown-body').html('加载中...')
-    $.post '/preview', { body: $('#article_content').val() }, (data)->
+    $.post '/admin/articles/preview', { body: $('#article_content').val() }, (data)->
       $('.markdown-body').html(data)
       false
     false
@@ -24,8 +24,10 @@ $(document).on 'ready, page:change', ->
 
   opt =
     type: 'POST'
-    url: "/photos"
+    url: "/admin/articles/photos"
     success: (data,status,xhr)->
+      window.reload()
+      return
       txtBox = $("#article_content")
       caret_pos = txtBox.caret('pos')
       src_merged = "\n" + data + "\n"
@@ -35,4 +37,4 @@ $(document).on 'ready, page:change', ->
       txtBox.caret('pos',caret_pos + src_merged.length)
       txtBox.focus()
 
-  $('input[type=file]').fileUpload opt
+  $('input.file-window').fileUpload(opt)
