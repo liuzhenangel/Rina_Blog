@@ -26,8 +26,6 @@ $(document).on 'ready, page:change', ->
     type: 'POST'
     url: "/admin/articles/photos"
     success: (data,status,xhr)->
-      window.reload()
-      return
       txtBox = $("#article_content")
       caret_pos = txtBox.caret('pos')
       src_merged = "\n" + data + "\n"
