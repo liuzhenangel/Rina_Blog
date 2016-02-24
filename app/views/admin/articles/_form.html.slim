@@ -1,0 +1,19 @@
+= form_for [:admin, @article] do |f|
+  = render 'shared/form_error_message'
+  p.article-title
+    = f.label '标题'
+    = f.text_field :title
+  .tabbable.tabs-left
+    ul.nav.nav-tabs
+      li.content-title.active
+        = link_to '内容', '#'
+      li.preview-title
+        = link_to '预览', '#'
+      a.pull-right#upload-photo herf='#'
+        |插入图片
+      input.file-window type='file'
+    = f.text_area :content
+    .markdown-body.markdown
+  = f.submit '发表'
+  .pull-right
+    = link_to '排版说明', 'https://ruby-china.org/markdown', target: '_blank'

@@ -1,0 +1,15 @@
+.container
+  - @articles.each do |article|
+    .row
+      .col-md-3
+        = link_to article.title, article
+      .col-md-2
+        = article.created_at.to_date
+      .col-md-1
+        = link_to "评论", article
+      .col-md-1
+        = link_to "编辑", edit_admin_article_path(article)
+      .col-md-1
+        = link_to "删除", admin_article_path(article), method: :delete, data: { confirm: "确认删除?" }
+
+  = paginate @articles
