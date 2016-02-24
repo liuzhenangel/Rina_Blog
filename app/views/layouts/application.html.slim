@@ -1,0 +1,47 @@
+html
+  head
+    title
+      | Rina's Blog
+    meta name='viewport' content="width=device-width, initial-scale=1.0, max-scale=1.0"
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag 'mp3'
+    = csrf_meta_tags
+  body
+    .container
+      .row.rina-header
+        .col-sm-4
+          .ih-item.circle.effect15.left_to_right.header-circle
+            = link_to '#' do
+              .img
+                = image_tag('7.jpg')
+              .info
+                h3 Music box
+                p.start-misic Click to Start
+                p.stop-misic style='display:none' Click to Stop
+          = audio_tag("sound.mp3", loop: true, class: 'audio-tag', type: 'audio/mpeg')
+        .col-sm-8.index-navbar-right
+          =link_to '订阅', '/blog/rss', class: 'btn btn-info index-btn-info a'
+          =link_to '主页', '/', class: 'btn btn-info index-btn-info a'
+          =link_to '所有', articles_path, class: 'btn btn-info index-btn-info a'
+          =link_to '相册', '/photo', class: 'btn btn-info index-btn-info a'
+          =link_to '关于', '/about', class: 'btn btn-info index-btn-info a'
+      .row
+        .col-md-9
+          = yield
+        .col-md-3
+          .search-field
+            = form_for(:search, url: search_articles_path, method: 'get') do |f|
+              = text_field_tag 'search', params[:search], class: 'form-control', placeholder: 'Search'
+          ul.nav.rina-new-article
+            li
+              h3.widgettitle 最新文章
+            - @newest_articles.each do |article|
+              li.rina-new-title
+                = link_to article.title, article_path(article)
+      .page-footer
+        span.link liuzhen.me
+        span.time © 2015 - 2015
+        .license
+          span
+            = link_to 'Rina\'s Blog', 'https://github.com/liuzhenangel/Rina_Blog', target: '_blank'

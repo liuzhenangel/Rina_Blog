@@ -1,0 +1,30 @@
+h2.rina-title
+  = @article.title
+.content.markdown
+  == @article.content_html
+
+.create-comment
+  = render 'shared/form_error_message'
+
+  = form_for @comment, url: comments_path(article_id: @article.id) do |f|
+    .form-group
+      = f.text_area :message, rows: '3', class: 'form-control', placeholder: '留言...'
+    .form-group
+      = f.text_field :username, class: 'form-control form-comment', placeholder: '你的名字'
+    .form-group
+      = f.text_field :email, class: 'form-control form-comment', placeholder: '邮箱'
+    .form-group
+      = f.submit '提交', class: 'btn btn-default'
+
+.form-group
+  - @comments.each_with_index do |comment, index|
+    - if index == 0
+      .comment-diag
+    .comment-wrapper
+      p.name
+        = comment.username
+        |•
+        span.created-at
+          = comment.created_at.strftime("%Y-%m-%d %H:%M")
+      p.comment-content
+        = comment.message

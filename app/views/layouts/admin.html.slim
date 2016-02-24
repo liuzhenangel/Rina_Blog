@@ -1,0 +1,31 @@
+html
+  head
+    title
+      | Rina's Blog
+    meta name='viewport' content="width=device-width, initial-scale=1.0, max-scale=1.0"
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    nav.navbar.navbar-inverse.rina-admin-navbar
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle.collapsed type='button' data-toggle='collapse' data-target='#bs-example-navbar-collapse-1'
+            span.sr-only
+              | Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          = link_to 'Rina', admin_articles_path, class: 'navbar-brand rina-logo'
+
+        .collapse.navbar-collapse#bs-example-navbar-collapse-1
+          ul.nav.navbar-nav
+            li = link_to '创建博客', new_admin_article_path
+            li = link_to '博客管理', admin_articles_path
+            li = link_to '相册管理', admin_photos_path
+            li = link_to '个人资料', edit_admin_article_path(Article.self_info)
+          ul.nav.navbar-nav.navbar-right
+            li= link_to '返回首页', '/'
+            - if login?
+              li = link_to '退出', '/signout'
+    = yield

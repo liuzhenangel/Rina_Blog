@@ -1,0 +1,8 @@
+.search-content
+  = render 'shared/form_error_message'
+  - @articles.each do |article|
+    h2.search-title
+      = link_to sanitize(article.title), article
+    .search-html
+      = sanitize article.content
+  = paginate @articles

@@ -1,0 +1,13 @@
+= render 'shared/form_error_message'
+
+section
+  .title
+    button.start.action type="button" Play
+    button.stop.action type="button" Stop
+  .slider-wrap
+    .slider
+      - @photos.each do |photo|
+        = image_tag(photo.image_url, size: '940*400')
+        p = photo.image_name
+footer
+  = link_to '返回首页', '/'

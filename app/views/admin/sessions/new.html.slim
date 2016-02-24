@@ -1,0 +1,11 @@
+.container
+  .row
+    .col-sm-6.col-sm-offset-3
+      = render 'shared/form_error_message'
+      h1 登录
+      = form_for(:session, url: signin_path, class: 'form-horizontal') do |f|
+        .form-group
+          = f.text_field :username, class: 'form-control', placeholder: '用户名'
+        .form-group
+          = f.password_field :password, class: 'form-control', placeholder: '密码'
+        = f.submit '登录', class: 'btn btn-large btn-primary'

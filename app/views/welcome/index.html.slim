@@ -1,0 +1,12 @@
+.row.index-row
+  - @articles.each_with_index do |artc1, index|
+    .col-sm-6
+      .ih-item.square.effect3.bottom_to_top.index-row
+        .index-title
+          = artc1.title
+        = link_to article_path(artc1) do
+          .img
+            = image_tag("#{index + 1}.jpg")
+          .info
+            h3 = artc1.title
+            p.square-p 点击查看
