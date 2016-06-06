@@ -1,4 +1,7 @@
 .fork_me_on_github {
+  @media (max-width: 780px) {
+    display: none;
+  }
   z-index: 10001;
   position: fixed;
   top: 0;
@@ -169,11 +172,13 @@ p{
 .index-navbar-right{
   @media (max-width: 780px) {
     margin-top: 17px;
-    text-align: center;
+    text-align: left;
+    padding-right: 0;
   }
 
   margin-top: 98px;
   text-align: right;
+  padding-right: 64px;
 }
 
 .a{
