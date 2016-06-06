@@ -10,6 +10,14 @@ class Article < ActiveRecord::Base
     Article.unscoped.where(self_info: true).first || Article.create(title: '个人信息', content: '刘祯', self_info: true)
   end
 
+  def short_title
+    if title.length > 10
+      title[0..10] + '...'
+    else
+      title
+    end
+  end
+
   def to_html
     self.content = content_html
     self

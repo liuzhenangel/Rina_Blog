@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :demos
+
   resources :articles do
     collection do
       get :search
