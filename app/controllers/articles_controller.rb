@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   def index
     @articles = Article.all
+    @meta_description = 'Rina\'s 所有博客文章.'
   end
 
   def show

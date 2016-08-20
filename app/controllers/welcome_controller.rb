@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
   def index
     @articles = Article.all.order(created_at: :desc).limit(8)
+    @meta_description = 'Rina\'s 个人博客, 分享生活, 工作与技术的相关文章'
   end
 
   def rss
@@ -11,6 +12,7 @@ class WelcomeController < ApplicationController
 
   def about
     @self_info = Article.self_info
+    @meta_description = 'Rina\'s 个人信息, 关于工作经历及个人简介.'
   end
 
   def photo
