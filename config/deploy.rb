@@ -23,8 +23,9 @@ task :environment do
   # Be sure to commit your .rbenv-version to your repository.
   # invoke :'rbenv:load'
 
-  queue! %[source /usr/local/rvm/scripts/rvm]
-  queue! %[rvm use 2.0.0]
+  invoke :'rvm:use[2.3.1]'
+  #queue! %[source /usr/local/rvm/scripts/rvm]
+  #queue! %[rvm use 2.0.0]
   # For those using RVM, use this to load an RVM version@gemset.
 end
 
