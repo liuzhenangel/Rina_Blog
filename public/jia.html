@@ -1,0 +1,433 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>如何自定义分享图片？ - JiaThis</title>
+<meta name="keywords" content="分享,分享到,分享代码,分享按钮,分享工具,网页分享,收藏工具,收藏按钮,社会化分享,smo" />
+<meta name="description" content="使用说明： 网站主可以自己定义要分享的图片，其      自定义标准代码如下：        &amp;lt;!-- JiaThis Button BEGIN --&amp;gt;  &amp;lt;script &quot;text/javascript&quot;&amp;gt;  var jiathis_config = {   pic:”自定义分享的图片地址”  }  &amp;lt;/script&amp;gt;  &amp;lt;script src=&quot;http://v2.jiat" />
+<link rel="shortcut icon" href="http://www.jiathis.com/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="/resource/default/jiathis.css" />
+<link rel="stylesheet" type="text/css" href="/resource/default/common.css" />
+<link rel="stylesheet" type="text/css" href="/resource/default/dialog.css" />
+<script language="javascript">var SITE_URL = 'http://www.jiathis.com';var SITE_LANGUAGE = 'zh-cn';</script>
+<script language="javascript" src="/resource/js/common.js"></script>
+<script language="JavaScript" src="/resource/js/ajax.js"></script>
+<script language="JavaScript" src="/resource/js/browser_plugins.js"></script>
+<script language="JavaScript" src="/resource/js/popup.js"></script>
+<script language="JavaScript" src="/resource/js/ajaxmenu.js"></script>
+<script language="javascript" src="/resource/js/jquery.min.js"></script>
+</head>
+<body>
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<!--top-->
+<div class="jt_header">
+  <div class="jt_header_top" >
+    <span class="jt_header_left">
+      <span id="_jiathis_menu">
+        <a href="http://www.jiathis.com" class="on" style="color:#ffffff; text-decoration:none;">JiaThis</a>
+        <a href="http://www.uyan.cc"  style="color:#ffffff; text-decoration:none;">友言</a>
+        <a href="http://www.ujian.cc" style="color:#ffffff; text-decoration:none;">友荐</a>
+      </span>
+    </span>
+    <div class="jt_header_right">
+      <!-- JiaThis Button BEGIN -->
+      <style>.jiathis_style a span{margin-right:5px;}</style>
+      <div class="jiathis_style" style="margin-right:8px;float:left;margin-top:7px;">
+        <a class="jiathis_button_qzone"></a>
+        <a class="jiathis_button_tsina"></a>
+        <a class="jiathis_button_tqq"></a>
+        <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+        <!-- JiaThis Button END -->
+      </div>
+      <span id="_jiathis_utk">
+        <a href="javascript:;" onclick="showDialog('http://login.jiathis.com/?callback=http%3A%2F%2Fwww.jiathis.com%2Fanalytics', '会员登录', 480, 360);" style="color:#ffffff; text-decoration:none;">登录</a> |
+        <a href="javascript:;" onclick="showDialog('http://login.jiathis.com/signup?callback=http%3A%2F%2Fwww.jiathis.com%2Fregister%2Fsuccess', '注册JiaThis通行证', 480, 360);" style="color:#ffffff; text-decoration:none;">注册</a>
+
+      </span>
+    </div>
+  </div>
+</div>
+
+<div style="padding:28px 0 0 ;">
+  <div class="topbg">
+    <div class="top">
+      <div class="logo"><a href="http://www.jiathis.com"><img src="/resource/images/logo/jiathis.gif" border="0" /></a></div>
+      <div class="menu">
+        <div class="flr menuright">
+          <span id="_jiathis_browser"></span>
+          <script language="javascript">get_browser_plugins('_jiathis_browser','_browser_head');</script>
+        </div>
+        <ul id="nav">
+          <li onmouseover="s('getcode_li_menu');" onmouseout="h('getcode_li_menu');" >
+          <span><a href="http://www.jiathis.com/getcode/tool" class="mlink01">代码<span class="f12">▼</span></a></span>
+          <ul id="getcode_li_menu" class="hide">
+            <li><a href="http://www.jiathis.com/getcode">侧栏式</a></li>
+            <li><a href="http://www.jiathis.com/getcode/tool">工具式</a></li>
+            <li><a href="http://www.jiathis.com/getcode/icon">图标式</a></li>
+            <li><a href="http://www.jiathis.com/getcode/slide">边栏式</a></li>
+            <li><a href="http://www.jiathis.com/getcode/mobile">手机代码</a></li>
+            <li><a href="http://www.jiathis.com/getcode/like">喜欢按钮</a></li>
+            <li><a href="http://www.jiathis.com/getcode/streak">划词分享</a></li>
+            <li><a href="http://www.jiathis.com/getcode/follow">更多</a></li>
+
+          </ul>
+          </li>
+          <li onmouseover="s('analytics_li_menu');" onmouseout="h('analytics_li_menu');" >
+          <span><a href="http://www.jiathis.com/analytics" class="mlink01">数据<span class="f12">▼</span></a></span>
+          <ul id="analytics_li_menu" class="hide">
+            <li><a href="http://www.jiathis.com/analytics">我的数据分析</a></li>
+            <!--<li><a href="http://www.jiathis.com/services">社会化媒体排行榜</a></li>-->
+          </ul>
+          </li>
+          <li onmouseover="s('uses_li_menu');" onmouseout="h('uses_li_menu');" >
+          <span><a href="http://www.jiathis.com/uses/userlist" class="mlink01">谁在使用<span class="f12">▼</span></a></span>
+          <ul id="uses_li_menu" class="hide">
+            <li><a href="http://www.jiathis.com/uses/userlist">谁在使用？</a></li>
+            <li><a href="http://www.jiathis.com/uses/webmaster">网站主</a></li>
+            <li><a href="http://www.jiathis.com/uses/person">个人用户</a></li>
+            <li><a href="http://www.jiathis.com/uses/voice">业界评价</a></li>
+          </ul>
+          </li>
+          <li onmouseover="s('help_li_menu');" onmouseout="h('help_li_menu');"  class="active">
+          <span><a href="http://www.jiathis.com/help" class="mlink01">帮助<span class="f12">▼</span></a></span>
+          <ul id="help_li_menu" class="hide">
+            <li><a href="http://www.jiathis.com/faq">常见问题（FAQ）</a></li>
+            <li><a href="http://www.jiathis.com/help/html/what-is-jiathis">介绍</a></li>
+            <li><a href="http://www.jiathis.com/help/html/standard-embed-code">安装</a></li>
+            <li><a href="http://www.jiathis.com/help/html/jiathis-diy">自定义</a></li>
+            <li><a href="http://sighttp.qq.com/msgrd?v=3&uin=800016857&site=qq&menu=yes" target="_blank">在线客服</a></li>
+          </ul>
+          </li>
+          <li onmouseover="s('zhanzhang_li_menu');" onmouseout="h('zhanzhang_li_menu');">
+          <span><a href="http://www.cnzz.com" target="_blank" class="mlink01">站长统计<span class="f12">▼</span></a></span>
+          <ul id="zhanzhang_li_menu" class="hide">
+            <li><a href="http://www.cnzz.com" target="_blank">CNZZ统计</a></li>
+            <li><a href="http://bbs.admin5.com" target="_blank">站长论坛</a></li>
+            <li><a href="http://tool.chinaz.com" target="_blank">站长工具</a></li>
+          </ul>
+          </li>
+          <li><span><a href="http://blog.jiathis.com" class="mlink01" target="_blank">博客</a></span></li>
+        </ul>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" language="javascript">
+function show_cms_menu(n){
+  var obj = document.getElementById("cms_menu_"+n);
+  var classname = obj.className;
+  var $j = jQuery.noConflict();
+  if(classname.indexOf("cms_nav_active") == -1){
+    //h("cms_ul_"+n);
+    $j(".subject").removeClass('cms_nav_active').addClass('cms_nav');
+    $j(".subject").next().slideUp();
+    $j("#cms_ul_"+n).slideDown();
+    obj.className = "cms_nav_active subject";
+  } else {
+    //s("cms_ul_"+n);
+    $j("#cms_ul_"+n).slideUp();
+    obj.className = "cms_nav";
+  }
+}
+function checkStr(input,str,restr){
+  var checkString = str == "" ? restr : str;
+  var inputObj = document.getElementById(input);
+  if(inputObj.value == "" || inputObj.value.indexOf("请输入") > -1) inputObj.value = restr;
+  if (inputObj.value  != checkString){
+    document.getElementById(input).style.color = '#000000';
+  }else{
+    document.getElementById(input).style.color = '#CCCCCC';
+  }
+}
+function searchSubmitCheck(){
+  var key = document.getElementById("q").value;
+  if(key == "" || key == "请输入搜索关键字"){
+    document.getElementById("q").focus();
+    return false;
+  } else {
+    return true;
+  }
+}
+</script>
+<div class="container">
+  <div><img src="/resource/default/images/tooltop.gif" width="980" height="13" /></div>
+  <span id="event-container"></span>
+  <div class="tooltop" id="event-menu">
+    <span class="f30">帮助</span>
+  </div>
+
+  <style>
+#ckepop {
+  font-family: '微软雅黑',arial,'宋体',tahoma,sans-serif;
+}
+  </style>
+  <div  class="toolbox" >
+    <div class="toolboxleft">
+      <div>
+        <div class="cmstitle f16">如何自定义分享图片？      <script>
+if(window.location.href == 'http://www.jiathis.com/help/html/jiathis-diy'){
+document.write('<a href="http://www.jiathis.com/customize" target="_blank"><img style="float:right; margin-right:15px; margin-top:10px;" src="/resource/default/images/zidingyi.jpg" /></a>');
+}
+          </script>
+        </div>
+
+        <!-- JiaThis Button BEGIN -->
+        <div class="jiathis_style" style="padding:15px 0 15px 0">
+          <a class="jiathis_button_tools_1"></a>
+          <a class="jiathis_button_tools_2"></a>
+          <a class="jiathis_button_tools_3"></a>
+          <a class="jiathis_button_tools_4"></a>
+          <a class="jiathis_button_tools_5"></a>
+          <a href="http://www.jiathis.com/share/?uid=1" class="jiathis jiathis_txt jtico jtico_jiathis"></a>
+          <a class="jiathis_counter_style"></a>
+        </div>
+        <!-- JiaThis Button END -->
+        <div style="padding:15px 0 10px 0">
+          <p>
+          <span style="font-family:;color:black;font-size:11.5pt;"><span style="font-family:;"><span style="font-size:12px;"></span><span style="font-size:12px;">使用说明： 网站主可以自己定义要分享的图片，其</span></span></span><span style="font-family:;font-size:12pt;"><span style="font-family:;"><span style="font-size:12px;">自定义标准代码如下：</span></span></span>
+          </p>
+          <pre class="prettyprint lang-js">&lt;!-- JiaThis Button BEGIN --&gt;
+                                        &lt;script "text/javascript"&gt;
+                                        var jiathis_config = {
+                                          pic:”自定义分享的图片地址”
+                                          }
+                                          &lt;/script&gt;
+                                          &lt;script src="http://v2.jiathis.com/code/jiathis_r.js?move=0"&gt;&lt;/script&gt;
+                                          &lt;!-- JiaThis Button END --&gt;
+          </pre>
+          <p>
+          <span style="font-family:;font-size:12pt;"><span style="font-family:;"><span style="font-size:12px;"></span></span></span>说明：用户使用pic参数自定义一张分享图片，此自定义支持新浪微博、腾讯微博、搜狐微博、网易微博，如果网站不使用自定义，即默认此值为空，那么分享到媒体将会根据社会化媒体原有的抓图机制来获取您网站的图片。
+          </p>
+          <p>
+          如想自定义多张分享图片，可以在图片地址中间加 || 隔开，即可将多张图片自定义到分享到媒体平台，此自定义支持新浪微博、腾讯微博。
+          </p>
+          <p>
+          参数pic：定义要分享的图片地址。&nbsp;
+          </p>
+          <p>
+          示例：当用户自定义分享一张 <a href="http://www.ujian.cc/" target="_blank">友荐</a>&nbsp;页面的图片时，即可这样写下代码：
+          </p>
+          <pre class="prettyprint lang-js">&lt;!-- JiaThis Button BEGIN --&gt;
+                                                &lt;script "text/javascript"&gt;
+                                                var jiathis_config = {
+                                                      pic:"http://blog.jiathis.com/wp-content/uploads/2012/02/ujian.jpg"
+                                                      }
+                                                      &lt;/script&gt;
+                                                      &lt;script src="http://v2.jiathis.com/code/jiathis_r.js?move=0"&gt;&lt;/script&gt;
+                                                      &lt;!-- JiaThis Button END --&gt;</pre>
+          <p>
+          将代码放入页面，分享到新浪微博，查看效果：
+          </p>
+          <p>
+          <img alt="" src="http://blog.jiathis.com/wp-content/uploads/2012/02/未命名18.jpg" width="575" height="382" />
+          </p>
+          <p>
+          &nbsp;
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="toolboxright">
+      <div class="mb20" style="border-bottom:1px dotted #666666;line-height:50px;"><a href="http://www.jiathis.com/help/">&raquo;返回帮助目录</a></div>
+      <div class="cms_nav" id="cms_menu_6" onclick="show_cms_menu('6');">
+        <h4>开始</h4>
+      </div>
+
+      <div class="cmslist hide" id="cms_ul_6">
+        <ul>
+          <li><a href="http://www.jiathis.com/help/html/what-is-jiathis" title="什么是JiaThis分享到按钮？">什么是JiaThis分享到按钮？</a></li>
+          <li><a href="http://www.jiathis.com/help/html/why-install-jiathis" title="为什么要安装分享到按钮?">为什么要安装分享到按钮?</a></li>
+          <li><a href="http://www.jiathis.com/help/html/which-website-need-jiathis" title="哪些网站需要分享到按钮?">哪些网站需要分享到按钮?</a></li>
+          <li><a href="http://www.jiathis.com/help/html/support-media-website" title="JiaThis支持的分享到网站">JiaThis支持的分享到网站</a></li>
+          <li><a href="http://www.jiathis.com/help/html/why-choose-jiathis" title="选择JiaThis的八大理由">选择JiaThis的八大理由</a></li>
+          <li><a href="http://www.jiathis.com/help/html/what-is-uid" title="什么是用户uid">什么是用户uid</a></li>
+        </ul>
+      </div>
+      <div class="cms_nav" id="cms_menu_7" onclick="show_cms_menu('7');">
+        <h4>安装</h4>
+      </div>
+
+      <div class="cmslist hide" id="cms_ul_7">
+        <ul>
+          <li><a href="http://www.jiathis.com/help/html/standard-embed-code" title="如何嵌入代码？">如何嵌入代码？</a></li>
+          <li><a href="http://www.jiathis.com/help/html/where-install-jiathis" title="一般安装到网站哪里?">一般安装到网站哪里?</a></li>
+          <li><a href="http://www.jiathis.com/help/html/jiathis-share-button-styles" title="JiaThis分享按钮的风格">JiaThis分享按钮的风格</a></li>
+          <li><a href="http://www.jiathis.com/help/html/optimized-jiathis-code" title="JiaThis分享代码的加载速度优化">JiaThis分享代码的加载速</a></li>
+          <li><a href="http://www.jiathis.com/help/html/email-install-jiathis" title="邮件添加分享按钮全攻略">邮件添加分享按钮全攻略</a></li>
+        </ul>
+      </div>
+      <div class="cms_nav_active subject" id="cms_menu_8" onclick="show_cms_menu('8');">
+        <h4>自定义</h4>
+      </div>
+
+      <div class="cmslist" id="cms_ul_8">
+        <ul>
+          <li><a href="http://www.jiathis.com/help/html/jiathis-diy" title="JiaThis客户端JS自定义API">JiaThis客户端JS自定义API</a></li>
+          <li><a href="http://www.jiathis.com/help/html/customize-the-icons" title="如何“自定义”分享图标？">如何“自定义”分享图标？</a></li>
+          <li><a href="http://www.jiathis.com/help/html/customize-url-title" title="如何自定义分享URL和Title？">如何自定义分享URL和Title</a></li>
+          <li><a href="http://www.jiathis.com/help/html/dynamic-title-summary" title="如何动态自定义分享Title和Summary？">如何动态自定义分享Title</a></li>
+          <li><a href="http://www.jiathis.com/help/html/customize-window-name" title="如何自定义分享到浮窗名字">如何自定义分享到浮窗名字</a></li>
+          <li><a href="http://www.jiathis.com/help/html/share-with-jiathis-api" title="直接通过JiaThis API接口分享">直接通过JiaThis API接口</a></li>
+          <li><a href="http://www.jiathis.com/help/html/close-share-button" title="如何关闭分享按钮？">如何关闭分享按钮？</a></li>
+          <li><a href="http://www.jiathis.com/help/html/add-more-icons" title="一个页面中添加多组分享代码">一个页面中添加多组分享代</a></li>
+          <li class="active"><a href="http://www.jiathis.com/help/html/customize-pic" title="如何自定义分享图片？">如何自定义分享图片？</a></li>
+          <li><a href="http://www.jiathis.com/help/html/position-share-button" title="如何使JiaThis按钮居中或任意位置">如何使JiaThis按钮居中或</a></li>
+          <li><a href="http://www.jiathis.com/help/html/close-data-analysis" title="如何关闭网站数据分析">如何关闭网站数据分析</a></li>
+          <li><a href="http://www.jiathis.com/help/html/customization-appkey" title="如何自定义分享到平台的appkey？">如何自定义分享到平台的ap</a></li>
+          <li><a href="http://www.jiathis.com/help/html/media-interface" title="如何自定义分享到媒体接口?">如何自定义分享到媒体接口</a></li>
+        </ul>
+      </div>
+      <div class="cms_nav" id="cms_menu_9" onclick="show_cms_menu('9');">
+        <h4>数据分析</h4>
+      </div>
+
+      <div class="cmslist hide" id="cms_ul_9">
+        <ul>
+          <li><a href="http://www.jiathis.com/help/html/preview-social-statistics" title="社会化数据分析后台界面预览">社会化数据分析后台界面预</a></li>
+          <li><a href="http://www.jiathis.com/help/html/preview-visitors-statistics" title="访客描述-子页面后台界面总览">访客描述-子页面后台界面</a></li>
+          <li><a href="http://www.jiathis.com/help/html/preview-sharing-statistics" title="分享数据分析后台界面预览">分享数据分析后台界面预览</a></li>
+          <li><a href="http://www.jiathis.com/help/html/preview-flow-statistics" title="流量数据分析后台界面预览">流量数据分析后台界面预览</a></li>
+          <li><a href="http://www.jiathis.com/help/html/preview-traffic-sources-statistics" title="流量来源分析后台界面预览">流量来源分析后台界面预览</a></li>
+        </ul>
+      </div>
+      <div class="cms_nav" id="cms_menu_15" onclick="show_cms_menu('15');">
+        <h4>各平台安装</h4>
+      </div>
+
+      <div class="cmslist hide" id="cms_ul_15">
+        <ul>
+          <li><a href="http://www.jiathis.com/help/html/wordpress-install-jiathis" title="JiaThis WordPress分享插件安装全攻略">JiaThis WordPress分享插</a></li>
+          <li><a href="http://www.jiathis.com/help/html/phpcms-install-jiathis" title="PHPCMS安装JiaThis分享工具">PHPCMS安装JiaThis分享工</a></li>
+          <li><a href="http://www.jiathis.com/help/html/dedecms-install-jiathis" title="JiaThis 织梦CMS分享插件安装全攻略">JiaThis 织梦CMS分享插件</a></li>
+          <li><a href="http://www.jiathis.com/help/html/php168cms-install-jiathis" title="PHP168CMS安装JiaThis分享工具">PHP168CMS安装JiaThis分享</a></li>
+          <li><a href="http://www.jiathis.com/help/html/zblog-install-jiathis" title="JiaThis Z-Blog分享插件安装全攻略">JiaThis Z-Blog分享插件安</a></li>
+          <li><a href="http://www.jiathis.com/help/html/ecshop-install-jiathis" title="ECshop安装JiaThis分享工具">ECshop安装JiaThis分享工</a></li>
+          <li><a href="http://www.jiathis.com/help/html/phpwind-install-jiathis" title="JiaThis Phpwind分享插件安装全攻略">JiaThis Phpwind分享插件</a></li>
+          <li><a href="http://www.jiathis.com/help/html/Portal-install-jiathis" title=" Discuz!X 门户文章添加分享按钮全攻略">Discuz!X 门户文章添加分</a></li>
+          <li><a href="http://www.jiathis.com/help/html/asp-install-jiathis" title="Discuz! ASP 安装JiaThis分享工具">Discuz! ASP 安装JiaThis</a></li>
+          <li><a href="http://www.jiathis.com/help/html/SupSite-install-jiathis" title="SupSite安装JiaThis分享工具">SupSite安装JiaThis分享工</a></li>
+          <li><a href="http://www.jiathis.com/help/html/discuz-install-jiathis" title="JiaThis Discuz!分享插件安装全攻略">JiaThis Discuz!分享插件</a></li>
+          <li><a href="http://www.jiathis.com/help/html/cnblogs-install-jiathis" title="Cnblogs博客园安装JiaThis分享工具">Cnblogs博客园安装JiaThis</a></li>
+          <li><a href="http://www.jiathis.com/help/html/empirecms-install-jiathis" title="JiaThis 帝国CMS分享插件安装全攻略 ">JiaThis 帝国CMS分享插件</a></li>
+          <li><a href="http://www.jiathis.com/help/html/emlog-install-jiathis" title="JiaThis Emlog分享插件安装全攻略 ">JiaThis Emlog分享插件安</a></li>
+        </ul>
+      </div>
+      <div class="cms_nav" id="cms_menu_16" onclick="show_cms_menu('16');">
+        <h4>媒体分享代码</h4>
+      </div>
+
+      <div class="cmslist hide" id="cms_ul_16">
+        <ul>
+          <li><a href="http://www.jiathis.com/help/html/qzone-share-code" title="分享到QQ空间代码">分享到QQ空间代码</a></li>
+          <li><a href="http://www.jiathis.com/help/html/tsina-share-code" title="分享到新浪微博代码">分享到新浪微博代码</a></li>
+          <li><a href="http://www.jiathis.com/help/html/renren-share-code" title="分享到人人网代码">分享到人人网代码</a></li>
+          <li><a href="http://www.jiathis.com/help/html/doubai-share-code" title="分享到豆瓣代码">分享到豆瓣代码</a></li>
+          <li><a href="http://www.jiathis.com/help/html/kaixin001-share-code" title="分享到开心网代码">分享到开心网代码</a></li>
+          <li><a href="http://www.jiathis.com/help/html/weixin-share-code" title="分享到微信代码">分享到微信代码</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class=" clear"></div>
+  </div>
+  <div class="mb10"><img src="/resource/default/images/toolbottom.gif" width="980" height="9" /></div></div>
+<link rel="stylesheet" href="/resource/js/kindeditor/plugins/code/prettify.css" />
+<script charset="utf-8" src="/resource/js/kindeditor/plugins/code/prettify.js"></script>
+<script type="text/javascript">prettyPrint();</script>
+<!--bottom-->
+<style>
+.bottomlist ul li.mb10{ color:#fff;}
+#bottom ul li a:link,#bottom ul li a:visited,#bottom ul li a:active { color:#fff;}
+.copyright,.copyright a { color:#fff;}
+</style>
+<div class="bottom" id="bottom">
+  <div class="bottomlist">
+    <ul>
+      <li class="mb10"><strong>旗下网站</strong></li>
+      <li><a href="http://www.jiathis.com" class="black12" target="_blank">JiaThis分享</a></li>
+      <li><a href="http://www.uyan.cc" class="black12" target="_blank">友言评论</a></li>
+      <li><a href="http://www.ujian.cc" class="black12" target="_blank">友荐推选</a></li>
+      <li><a href="http://www.adsocial.cn" class="black12" target="_blank">社交广告</a></li>
+    </ul>
+    <ul>
+      <li class="mb10"><strong>按钮自定义</strong></li>
+      <li><a href="http://www.jiathis.com/help/html/share-with-jiathis-api" class="black12">API接口（程序）</a></li>
+      <li><a href="http://www.jiathis.com/help/html/jiathis-diy" class="black12">API接口（JS）</a></li>
+      <li><a href="http://www.jiathis.com/help/html/support-media-website" class="black12">分享网站ID清单</a></li>
+      <li><a href="http://www.jiathis.com/help/html/customize-the-icons" class="black12">分享图标自定义</a></li>
+    </ul>
+    <ul>
+      <li class="mb10"><strong>关注JiaThis</strong></li>
+      <li><a href="http://weibo.com/jiathis" class="black12" target="_blank">关注新浪微博</a></li>
+      <li><a href="http://t.qq.com/jiathis" class="black12" target="_blank">关注腾讯微博</a></li>
+      <li><a href="http://jiathisvip.t.sohu.com" class="black12" target="_blank">关注搜狐微博</a></li>
+      <li><a href="http://t.163.com/jiathis" class="black12" target="_blank">关注网易微博</a></li>
+    </ul>
+    <ul>
+      <li class="mb10"><strong>浏览器插件</strong></li>
+      <li><a href="http://www.jiathis.com/uses/ff_plugins" target="_blank" class="black12">Firefox分享插件</a></li>
+      <li><a href="http://www.jiathis.com/uses/ie_plugins" target="_blank" class="black12">IE右键分享菜单</a></li>
+      <li><a href="http://www.jiathis.com/uses/person/chrome" target="_blank" class="black12">Chrome分享插件</a></li>
+      <li><a href="http://www.jiathis.com/uses/person/safari" target="_blank" class="black12">Safari分享插件</a></li>
+    </ul>
+    <ul>
+      <li class="mb10"><strong>站内资源</strong></li>
+      <li><a href="http://www.jiathis.com/report" class="black12">社会化分享数据报告</a></li>
+      <li><a href="http://www.jiathis.com/help/html/discuz-install-jiathis" class="black12">Discuz! 分享插件</a></li>
+      <li><a href="http://www.jiathis.com/help/html/wordpress-install-jiathis" class="black12">Wordpress 分享插件</a></li>
+      <li><a href="http://www.jiathis.com/help/html/phpcms-install-jiathis" class="black12">PHPCMS分享插件</a></li>
+    </ul>
+
+    <ul>
+      <li class="mb10"><strong>关于我们</strong></li>
+      <li><a href="http://www.jiathis.com/contact" class="black12">联系我们</a></li>
+      <li><a href="http://www.jiathis.com/privacy" class="black12">隐私权政策</a></li>
+      <li><a href="http://blog.jiathis.com" class="black12" target="_blank">JiaThis博客</a></li>
+
+    </ul>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+  <br />
+  <div class="f12 container copyright">&copy; 2016 JiaThis.com - <a href="http://www.miibeian.gov.cn" target="_blank">京ICP证110367号&nbsp;&nbsp; 京ICP备09005156号-12</a> <img src="/resource/default/images/gs.gif" /></div>
+</div>
+
+<script language="JavaScript" src="http://www.jiathis.com/userticket"></script>
+
+<!-- UJian Button BEGIN -->
+<script type="text/javascript" src="http://v1.ujian.cc/code/ujian.js?uid=97934&type=slide&btn=4"></script>
+<!-- UJian Button END -->
+
+<div style="display:none">
+  <script src="http://s15.cnzz.com/stat.php?id=2400744&web_id=2400744" language="JavaScript"></script>
+  <script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10046963-3']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+  </script>
+</div>
+
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript">
+var jiathis_config = {
+appkey:{
+         "tpeople":"6045604360"
+       },
+       "do_not_track":true,
+       "ralateuid":{"tsina":"1647863564"},
+       "data_track_clickback":true
+};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+</body>
+</html>
