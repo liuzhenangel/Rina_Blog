@@ -1,8 +1,16 @@
 # rina's blog
 
 ## Demo
+![](https://l.ruby-china.org/photo/2017/6617885b-e153-41fa-8269-10622074b34d.png!large)
+![](https://l.ruby-china.org/photo/2017/b568b5b2-0090-4228-be0a-3684e4e3d465.png!large)
+![](https://l.ruby-china.org/photo/2017/c2b7cc17-f397-47cd-b1ee-438736bfa85a.png!large)
+![](https://l.ruby-china.org/photo/2017/b2279479-1b8e-4a5c-a0f8-0ce6560494f1.png!large)
+![](https://l.ruby-china.org/photo/2017/ad5640de-77a9-4b54-9c39-42eb7c393783.png!large)
+![](https://l.ruby-china.org/photo/2017/246418eb-6682-454a-87b0-c4b30eb15070.png!large)
+![](https://l.ruby-china.org/photo/2017/5996e2f3-8b16-4545-8a9b-66ae7d28a7d4.png!large)
+![](https://l.ruby-china.org/photo/2017/14ca8aae-8f45-425a-94e8-639114b7983d.png!large)
 
-项目 Demo 请访问: <http://liuzhen.me/>
+
 
 ## 项目介绍
 
