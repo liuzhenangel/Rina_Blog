@@ -1,6 +1,10 @@
 # rina's blog
 
-## Demo
+## 1.0 博客已经废弃，最新版本 v2.0 已上线
+
+详情请查看: <https://github.com/liuzhenangel/RBlog>
+
+## 1.0 Demo
 ![](https://l.ruby-china.org/photo/2017/6617885b-e153-41fa-8269-10622074b34d.png!large)
 ![](https://l.ruby-china.org/photo/2017/b568b5b2-0090-4228-be0a-3684e4e3d465.png!large)
 ![](https://l.ruby-china.org/photo/2017/c2b7cc17-f397-47cd-b1ee-438736bfa85a.png!large)
