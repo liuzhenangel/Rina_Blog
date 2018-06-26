@@ -35,7 +35,7 @@ gem 'nprogress-rails'
 group :development, :test do
   gem 'byebug'
   gem 'pry'
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 2.3.0'
   gem 'spring'
 end
 
