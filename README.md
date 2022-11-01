@@ -6,6 +6,8 @@
 
 [![Rina's GitHub stats](https://github-readme-stats.vercel.app/api?username=liuzhenangel)](https://github.com/anuraghazra/github-readme-stats)
 
+![Rina's GitHub stats](https://github-readme-stats.vercel.app/api?username=liuzhenangel&show_icons=true&hide_border=true&hide_rank=true&hide_title=true&card_width=120)
+
 ## 1.0 Demo
 ![](https://l.ruby-china.org/photo/2017/6617885b-e153-41fa-8269-10622074b34d.png!large)
 ![](https://l.ruby-china.org/photo/2017/b568b5b2-0090-4228-be0a-3684e4e3d465.png!large)
